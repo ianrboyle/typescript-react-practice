@@ -9,12 +9,14 @@ interface IInvoiceListProps {
 
 }
 
-type InvoiceType =  {id: number; name: string; total: string; paymentStatus: string}
+type InvoiceType =  {id: number; name: string; total: string; paymentStatus: PaymentStatusType}
 
 type InvoiceDataType = {
   customerName: string;
   invoices: InvoiceType[]
 }
+
+type PaymentStatusType =  "paid" | "pending"
 const InvoiceList = (props: IInvoiceListProps) => {
   const {customerName, invoices} = props.invoiceData
   const invoicesInfo = invoices.map((invoice) => {return invoice})
