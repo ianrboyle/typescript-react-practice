@@ -4,14 +4,19 @@ import Hello from "./Hello";
 import HelloWithHooks from "./HelloWithHooks";
 
 interface IInvoiceListProps {
-  customerName: string,
-  invoices: {id: number; name: string; total: string}
+  invoiceData: {
+    customerName: string,
+    invoices: {id: number; name: string; total: string}[]
+  }
+  logo?: string
+
 }
 
 const InvoiceList = (props: IInvoiceListProps) => {
+  const {customerName, invoices} = props.invoiceData
   return <div>
     <h1>Invoices...</h1>
-    <h2>{props.invoices}</h2>
+    <h2>{customerName}</h2>
   </div>
 }
 
